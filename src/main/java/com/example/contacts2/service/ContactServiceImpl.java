@@ -20,15 +20,25 @@ public class ContactServiceImpl implements ContactService{
     public Contact findById(Long id){
         return contactRepository.findById(id);
     }
-    public void save(Contact contact){
-        contactRepository.add(contact);
+
+    @Override
+    public Contact add(Contact contact) {
+        return contactRepository.add(contact);
     }
 
-    public void update(Contact contact){
-        contactRepository.update(contact);
+    public Contact update(Contact contact){
+        return contactRepository.update(contact);
     }
 
-    public void delete(Long id){
+    @Override
+    public void deleteById(Long id) {
         contactRepository.deleteById(id);
+
+    }
+
+    @Override
+    public void batchInsert(List<Contact> contactList) {
+        contactRepository.batchInsert(contactList);
+
     }
 }

@@ -1,6 +1,7 @@
 package com.example.contacts2.controller;
 
 import com.example.contacts2.model.Contact;
+import com.example.contacts2.service.ContactService;
 import com.example.contacts2.service.ContactServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class ContactsController {
 
-    private final ContactServiceImpl contactService;
+    private final ContactService contactService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -29,7 +30,7 @@ public class ContactsController {
     @PostMapping("/contact/create")
     public String createSubmit(@ModelAttribute Contact contact) {
         if (contact.getId() == null) {
-            contactService.save(contact);
+            contactService.add(contact);
         } else {
             contactService.update(contact);
         }
@@ -48,7 +49,7 @@ public class ContactsController {
 
     @GetMapping("/contact/delete/{id}")
     public String delete(@PathVariable Long id) {
-        contactService.delete(id);
+        contactService.deleteById(id);
         return "redirect:/";
     }
 

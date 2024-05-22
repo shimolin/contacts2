@@ -24,11 +24,11 @@
 
     <div>
         <label for="firstname">First name</label>
-        <input type="text" id="firstname" name="firstName" required th:value="${contact.firstName}"/>
+        <input type="text" id="firstname" name="firstname" required th:value="${contact.getFirstname}"/>
     </div>
     <div>
         <label for="lastname">Last name</label>
-        <input type="text" id="lastname" name="lastName" required th:value="${contact.lastName}"/>
+        <input type="text" id="lastname" name="lastname" required th:value="${contact.getLastname}"/>
     </div>
     <div>
         <label for="email">Email</label>

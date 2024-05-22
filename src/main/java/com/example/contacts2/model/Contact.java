@@ -8,10 +8,11 @@ import lombok.experimental.FieldNameConstants;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldNameConstants
 public class Contact {
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
     private String phone;
 }

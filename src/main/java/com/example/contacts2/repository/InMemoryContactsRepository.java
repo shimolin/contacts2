@@ -27,15 +27,15 @@ public class InMemoryContactsRepository  implements ContactRepository{
     @Override
     public Contact add(Contact contact) {
         Long id = System.currentTimeMillis();
-        return contactList.put(id, new Contact(id, contact.getFirstName(), contact.getLastName(), contact.getEmail(), contact.getPhone()));
+        return contactList.put(id, new Contact(id, contact.getFirstname(), contact.getLastname(), contact.getEmail(), contact.getPhone()));
     }
 
     @Override
     public Contact update(Contact contact) {
         Contact existContact = findById(contact.getId());
         if(existContact != null){
-            existContact.setFirstName(contact.getFirstName());
-            existContact.setLastName(contact.getLastName());
+            existContact.setFirstname(contact.getFirstname());
+            existContact.setLastname(contact.getLastname());
             existContact.setEmail(contact.getEmail());
             existContact.setPhone(contact.getPhone());
         }
